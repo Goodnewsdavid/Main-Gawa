@@ -475,7 +475,8 @@
 		transform: translateY(2px);
 	}
 	.hamburger
-	{
+	{padding-left: 13rem;
+
 		-webkit-transform: none;
 		-moz-transform: none;
 		-ms-transform: none;

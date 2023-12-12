@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select class="flex-calc-length">
+        <option value="6">1/2 year</option>
+        <option value="12" selected>1 year</option>
+        <option value="24">2 years</option>
+        <option value="36">3 years</option>
+        <option value="48">4 years</option>
+        <option value="60">5 years</option>
+     </select>
+     <!-- <script>
+         let prevVal = $('.flex-calc-length').val();
+function replaceSelection() {
+  selectedVal = $('.flex-calc-length').val();
+  
+  $('.flex-calc-length > option').each(function(i, item) {
+    if(item.value === prevVal) {
+      $(item).removeAttr("selected");
+    }
+  })
+  
+  $('.flex-calc-length > option').each(function(i, item) {
+    if(item.value === selectedVal) {
+      $(item).attr("selected", "true");
+      prevVal = $(item).val();
+    }
+  })
+}
+     </script> -->
+</body>
+</html>

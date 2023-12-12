@@ -112,6 +112,7 @@
 	}
 	.hamburger
 	{
+		padding-left: 28rem;
 		display: block;
 	}
 	.intro
@@ -313,6 +314,8 @@
 	}
 	.hamburger
 	{
+		padding-left: 13rem;
+
 		-webkit-transform: none;
 		-moz-transform: none;
 		-ms-transform: none;

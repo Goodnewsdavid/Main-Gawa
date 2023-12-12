@@ -12,7 +12,7 @@ const hotels = [
     review: "8.1",
     rating: "5",
     image: "images/hotelimg/Creme-suites-hotel.jpg",
-    price: "105,0000",
+    price: "15,000",
     country: "Onipanu",
   },
   {
@@ -28,7 +28,7 @@ const hotels = [
     review: "8.1",
     rating: "4",
     image: "images/hotelimg/Kings-celiahotel.jpg",
-    price: "80,000",
+    price: "18,000",
     country: "Yaba",
   },
   {
@@ -36,7 +36,7 @@ const hotels = [
     review: "8.1",
     rating: "5",
     image: "images/hotelimg/paradise-Hotel.jpg",
-    price: "200,000",
+    price: "20,000",
     country: "Obanikoro",
   },
   {
@@ -69,7 +69,7 @@ const hotels = [
     rating: "5",
     image: "images/hotelimg/Th-Cocoon-hotel.png",
     price: "20,000",
-    country: "Ikeja",
+    country: "MaryLand",
   },
   {
     name: "The AHI Residence",
@@ -92,7 +92,7 @@ const hotels = [
     review: "8.1",
     rating: "4",
     image: "images/hotelimg/Vintage-Suites.jpeg",
-    price: "80,0000",
+    price: "60,000",
     country: "Surulere",
   },
 ];
@@ -136,6 +136,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const locations = urlParams.get("location");
 const price = urlParams.get("price");
+// const country = urlParams.get("country");
 if (locations) {
   let filteredHotels;
   filteredHotels = hotels.filter(
@@ -156,7 +157,7 @@ if (locations) {
             </div>
             <div class="col-lg-8">
                 <div class="offers_content">
-                    <div class="offers_price">${list.price}<span>per night</span></div>
+                    <div class="offers_price">₦${list.price}<span>per night</span></div>
                     <div class="rating_r rating_r_4 offers_rating" data-rating="4">
                         <i></i>
                         <i></i>
@@ -164,9 +165,7 @@ if (locations) {
                         <i></i>
                         <i></i>
                     </div>
-                    <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.
-                        Lorem ipsum dolor sit amet.</p>
+                    <p class="offers_text"></p>
                     <div class="offers_icons">
                         <ul class="offers_icons_list">
                             <li class="offers_icons_item"><img src="images/post.png" alt="">
@@ -214,7 +213,7 @@ if (locations) {
             </div>
             <div class="col-lg-8">
                 <div class="offers_content">
-                    <div class="offers_price">${list.price}<span>per night</span></div>
+                    <div class="offers_price">₦${list.price}<span>per night</span></div>
                     <div class="rating_r rating_r_4 offers_rating" data-rating="4">
                         <i></i>
                         <i></i>
@@ -222,9 +221,7 @@ if (locations) {
                         <i></i>
                         <i></i>
                     </div>
-                    <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.
-                        Lorem ipsum dolor sit amet.</p>
+                    // <p class="offers_text"></p>
                     
                     <div class="button book_button"><a
                             href="#">book<span></span><span></span><span></span></a></div>
@@ -255,7 +252,7 @@ if (locations) {
             </div>
             <div class="col-lg-8">
                 <div class="offers_content">
-                    <div class="offers_price">${list.price}<span>per night</span></div>
+                    <div class="offers_price">₦${list.price}<span>per night</span></div>
                     <div class="rating_r rating_r_4 offers_rating" data-rating="4">
                         <i></i>
                         <i></i>
@@ -263,9 +260,7 @@ if (locations) {
                         <i></i>
                         <i></i>
                     </div>
-                    <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum
-                        dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.
-                        Lorem ipsum dolor sit amet.</p>
+                    <p class="offers_text"></p>
                     
                     <div class="button book_button"><a
                             href="#">book<span></span><span></span><span></span></a></div>
@@ -303,7 +298,7 @@ if (locations) {
         </div>
         <div class="col-lg-8">
             <div class="offers_content">
-                <div class="offers_price">${list.price}<span></span></div>
+                <div class="offers_price">₦${list.price}<span></span></div>
                 <div class="rating_r rating_r_4 offers_rating" data-rating="4">
                     <i></i>
                     <i></i>
@@ -311,9 +306,7 @@ if (locations) {
                     <i></i>
                     <i></i>
                 </div>
-                <p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum
-                    dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.
-                    Lorem ipsum dolor sit amet.</p>
+              
                 
                 <div class="button book_button book"><a
                         href="" >book<span></span><span></span><span></span></a></div>
@@ -376,18 +369,30 @@ countries.map((list) => {
   $(".dropdown_item_select").append(`<option>${list}</option>`);
 });
 
-$(".dropdown_item_select2").on("change", () => {
-  const selectedCountry = $(".dropdown_item_select2").find(":selected").val();
+$(".dropdown_item_select").on("change", () => {
+  let selectedCountry = $(".dropdown_item_select").find(":selected").val();
   window.location = `offers.html?location=${selectedCountry}`;
+
+   
 });
+
+if(locations !== null ) {
+  const selectedValue = $(".dropdown_item_select").find(":selected").val();
+
+  // Now you can use the selectedValue variable as needed
+  console.log("Selected Value:", selectedValue);
+  
+}
+
+
 
 const flights = flight.map((list) => list.state);
 flights.map((list) => {
   $(".dropdown_item_select2").append(`<option>${list}</option>`);
 });
 
-$(".dropdown_item_select").on("change", () => {
-  const selectedState = $(".dropdown_item_select").find(":selected").val();
+$(".dropdown_item_select2").on("change", () => {
+  const selectedState = $(".dropdown_item_select2").find(":selected").val();
   window.location = `offers.html?location=${selectedState}`;
 });
 
